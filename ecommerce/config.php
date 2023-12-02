@@ -8,16 +8,16 @@ session_start();
 
 defined("DS") ? null : define("DS",DIRECTORY_SEPARATOR );
 
-defined("FRONT") ? null : define ("FRONT", __DIR__.DS."templates/front");
-//defined("FRONT") ? null : define ("FRONT", "C:/xampp/htdocs/ecommerce/ecommerce_v.1/app/templates/front");
+//defined("FRONT") ? null : define ("FRONT", __DIR__.DS."templates/front");
+defined("FRONT") ? null : define ("FRONT", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app/templates/front");
 
 echo FRONT;
 
 
-defined("BACK") ? null : define ("BACK", __DIR__.DS."templates\back");
-//defined("FRONT") ? null : define ("FRONT", "C:/xampp/htdocs/ecommerce/ecommerce_v.1/app/templates/back");
+//defined("BACK") ? null : define ("BACK", __DIR__.DS."templates\back");
+defined("BACK") ? null : define ("BACK", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app/templates/back");
 
-
+echo BACK;
 
 defined("DB_HOST") ? null : define ("DB_HOST", "localhost");
 defined("DB_USER") ? null : define ("DB_USER", "root");
