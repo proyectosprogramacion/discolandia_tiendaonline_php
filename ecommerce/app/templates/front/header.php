@@ -43,11 +43,9 @@
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li class="nav-item" pull-right>
-              <!--login/login/ -->
               <a href="" class="btn">Login</span></a>
             </li>
             <li class="nav-item" pull-right>
-              <!--login/login/ -->
               <a href="" class="btn">Admin</span></a>
             </li>
           </ul>

@@ -27,7 +27,7 @@ defined("DB_NAME") ? null : define("DB_NAME", "disco_db");
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 
-//Archivos necesarios que se utilicen
+//Archivos necesarios que se utilicen de forma general en el programa
 require_once("functions.php");
 
 
