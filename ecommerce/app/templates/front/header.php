@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="../public/css/style.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -20,8 +20,7 @@
       <div class="container-fluid">
         <!--Icono izquierda-->
         <a class="navbar-brand" href="#">
-          <img src="../public/img/logo_discos.jpg" alt="Discolandia" width=" 50" height="50">
-
+          <img src="../public/img/logo_discos.jpg" alt="Bootstrap" width=" 50" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,17 +36,23 @@
               <a class="nav-link active" aria-current="page" href="catalog.php">Catálogo</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="contact.php">Contacto</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="merchandising.php">Merchandising</a>
             </li>
 
           </ul>
+          <!--Admin y carrito -->
+
           <ul class="nav navbar-nav pull-right">
             <li class="nav-item" pull-right>
-              <a href="" class="btn">Login</span></a>
+              <a href="checkout.php" class="btn"><i class="bi bi-cart"></i></span></a>
             </li>
             <li class="nav-item" pull-right>
-              <a href="" class="btn">Admin</span></a>
+              <a href="login.php" class="btn">Admin</span></a>
             </li>
+
           </ul>
 
         </div>

@@ -1,8 +1,16 @@
 <?php
+$upload_directory = "uploads";
 
-//funciones generales
+// helper functions
 
-//Modifica mensajes
+
+function last_id()
+{
+    global $connection;
+    return mysqli_insert_id($connection);
+}
+
+
 function set_message($msg)
 {
     if (!empty($msg)) {
@@ -12,7 +20,7 @@ function set_message($msg)
     }
 }
 
-//Muestra mensajes
+
 function display_message()
 {
     if (isset($_SESSION['message'])) {
@@ -21,29 +29,24 @@ function display_message()
     }
 }
 
-//Redirige hacia una dirección
+
 function redirect($location)
 {
     return header("Location: $location ");
 }
 
-//recupera el último id
-function last_id()
-{
-    global $connection;
-    return mysqli_insert_id($connection);
-}
 
 
 
-//Ejecuta una query
+
+
 function query($sql)
 {
     global $connection;
     return mysqli_query($connection, $sql);
 }
 
-//confirma la ejecución de la query
+
 function confirm($result)
 {
     global $connection;
@@ -52,7 +55,7 @@ function confirm($result)
     }
 }
 
-//Se utiliza para evitar la inyección SQL en lugares como los formularios
+
 function escape_string($string)
 {
     global $connection;
@@ -60,53 +63,42 @@ function escape_string($string)
 }
 
 
-//Obtener resultados de la consulta
+
 function fetch_array($result)
 {
     return mysqli_fetch_array($result);
 }
 
 
-
-//No se si lo necesitare
-$upload_directory = "uploads";
-
-
-
-
-
 /****************************FRONT END FUNCTIONS************************/
 
-//Muestra los productos de la tabla products
+
+
 function get_products()
 {
-    $query = query("SELECT * FROM products");
-    //confirmamos que la query es correcta
+    $query = query(" SELECT * FROM products");
     confirm($query);
-
     while ($row = fetch_array($query)) {
+        $product_image = display_image($row['product_image']);
         $product = <<<DELIMETER
-        <div class="col py-5">
-            <div class="card" style="width: 18rem;">
-                <img src="https://placehold.co/300x150" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <h5 class="card-title">Card title</h5>
-                        <h5 class="card-title">{$row['product_price']}</h5>
-                    </div>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+        
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <a href="item.php?id={$row['product_id']}"><img style="height: 90px" src="{$product_image}" alt=""></a>
+       <div class="caption">
+           <h4 class="pull-right">&#36;{$row['product_price']}</h4>
+           <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
+            </h4>
+            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+             <a class="btn btn-primary" target="_blank" href="../app/cart.php?add={$row['product_id']}">Add to cart</a>
         </div>
-        DELIMETER;
-
+    </div>
+</div>
+DELIMETER;
         echo $product;
     }
-
-
 }
-//No se si lo necesitare
+
 function count_all_records($table)
 {
     return mysqli_num_rows(query('SELECT * FROM' . $table));
@@ -120,7 +112,7 @@ function count_all_products_in_stock()
 
 
 
-//No se si lo necesitare
+
 function get_products_with_pagination($perPage = "6")
 {
     $rows = count_all_products_in_stock();
@@ -339,36 +331,28 @@ DELIMETER;
 
 
 
+
 function login_user()
 {
 
-    if (isset($_POST['submit'])) {
-
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = escape_string($_POST['username']);
+        //$email=escape_string($_POST['email']);
         $password = escape_string($_POST['password']);
-
-        $query = query("SELECT * FROM users WHERE username = '{$username}' AND password = '{$password}' ");
+        $query = query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
         confirm($query);
 
+
+
         if (mysqli_num_rows($query) == 0) {
-
-            set_message("Your Password or Username are wrong");
+            set_message("Tu email o password es erronea.");
             redirect("login.php");
-
-
         } else {
-
             $_SESSION['username'] = $username;
-            redirect("admin");
-
+            redirect("admin.php");
         }
 
-
-
     }
-
-
-
 }
 
 
@@ -460,12 +444,8 @@ DELIMETER;
 
 function display_image($picture)
 {
-
     global $upload_directory;
-
     return $upload_directory . DS . $picture;
-
-
 
 }
 
@@ -491,7 +471,7 @@ function get_products_in_admin()
         <tr>
             <td>{$row['product_id']}</td>
             <td><a href="admin.php?edit_product&id={$row['product_id']}">{$row['product_title']}</a><br>
-       <img width='100' src="../../resources/{$product_image}" alt="">
+       <img width='100' src="{$product_image}" alt="">
             </td>
             <td>{$category}</td>
             <td>{$row['product_price']}</td>
@@ -580,10 +560,10 @@ function show_categories_add_product_page()
 
         $categories_options = <<<DELIMETER
 
- <option value="{$row['cat_id']}">{$row['cat_title']}</option>
+    <option value="{$row['cat_id']}">{$row['cat_title']}</option>
 
 
-DELIMETER;
+    DELIMETER;
 
         echo $categories_options;
 
@@ -782,11 +762,6 @@ function add_user()
         $username = escape_string($_POST['username']);
         $email = escape_string($_POST['email']);
         $password = escape_string($_POST['password']);
-        // $user_photo = escape_string($_FILES['file']['name']);
-// $photo_temp = escape_string($_FILES['file']['tmp_name']);
-
-
-        // move_uploaded_file($photo_temp, UPLOAD_DIRECTORY . DS . $user_photo);
 
 
         $query = query("INSERT INTO users(username,email,password) VALUES('{$username}','{$email}','{$password}')");

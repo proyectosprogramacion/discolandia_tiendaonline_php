@@ -13,22 +13,18 @@
       <div class="card-body">
         <h5 class="card-title">Redes sociales</h5>
         <p class="card-text">
-          <a class="text-light " href="#"><img class="redes" src="../public/fonts/linkedin.svg" alt="linkedin"></a>
-          <a href="#" class="text-light "><img class="redes" src="../public/fonts/twitter-x.svg" alt="twitter"></a>
-          <a href="#" class="text-light "><img class="redes" src="../public/fonts/youtube.svg" alt="youtube"></a>
+          <a class="text-light p-3 " href="#"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="text-light  p-3"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light   p-3"><i class="bi bi-youtube"></i></a>
         </p>
       </div>
     </div>
-    <div class="card bg-dark text-white">
+    <div class="card bg-dark text-white ">
       <div class="card-body">
-        <h5 class="card-title">Contacto</h5>
-        <p class="card-text">Email: discolandia@discolandia.es
-          <br />
-          Telefono: 651 867 282
-        </p>
-        <p class="card-text"><small class="text-white"> 91 147 00 23 (Atención telefónica de 9 horas a 19 horas de lunes
-            a sábado)
-          </small></p>
+        <h5 class="card-title"></h5>
+        <p class="card-text"><a href="#" class="text-light   p-3">Política de privacidad</a></p>
+        <p class="card-text"><a href="#" class="text-light   p-3">Términos y condiciones</a></p>
+        <p class="card-text"><a href="#" class="text-light   p-3">Descarga de responsabilidad</a></p>
       </div>
     </div>
   </div>

@@ -19,7 +19,7 @@ include(FRONT . DS . "header.php");
                             <h5 class="card-title">Extremoduro </h5>
                             <p class="card-text">15€</p>
                             <p class="card-text texto">Extremoduro fue un grupo español de rock fundado por Roberto
-                                Iniesta en la ciudad extremeña de Plasencia en 1987 que se mantuvo activo hasta su
+                                Iniesta en la ciudad extremeña de Plasencia en 1987​ que se mantuvo activo hasta su
                                 disolución en diciembre de 2019.</p>
                         </div>
                         <a href="#" class="btn bg-black text-white">Comprar</a>
