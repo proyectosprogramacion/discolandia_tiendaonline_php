@@ -12,6 +12,7 @@
     <div class="card bg-dark text-white">
       <div class="card-body">
         <h5 class="card-title">Redes sociales</h5>
+        <br>
         <p class="card-text">
           <a class="text-light p-3 " href="#"><i class="bi bi-linkedin"></i></a>
           <a href="#" class="text-light  p-3"><i class="bi bi-twitter"></i></a>
@@ -19,12 +20,12 @@
         </p>
       </div>
     </div>
-    <div class="card bg-dark text-white ">
+    <div class="card bg-dark text-white">
       <div class="card-body">
         <h5 class="card-title"></h5>
-        <p class="card-text"><a href="#" class="text-light   p-3">Política de privacidad</a></p>
-        <p class="card-text"><a href="#" class="text-light   p-3">Términos y condiciones</a></p>
-        <p class="card-text"><a href="#" class="text-light   p-3">Descarga de responsabilidad</a></p>
+        <p><a href="#" class="text-light   p-3">Política de privacidad</a></p>
+        <p><a href="#" class="text-light   p-3">Términos y condiciones</a></p>
+        <p><a href="#" class="text-light   p-3">Descarga de responsabilidad</a></p>
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@ include(FRONT.DS."header.php");
 <div class="container-fluid mt-5">
 <div class="row">
       <h4 class="text-center bg-dark text-light py-2"><?php display_message();?></h4>
-      <h1 class="section-heading">Checkout</h1>
+      <h1>Checkout</h1>
 
     <form action="">
     <table class="table table-striped table-responsive">

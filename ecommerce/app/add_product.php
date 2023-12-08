@@ -1,12 +1,10 @@
-
 <?php add_product(); ?>
 
 
 <div class="col-md-12">
-
   <div class="row">
     <h1 class="page-header">
-      Add Product
+      Añadir productos
 
     </h1>
   </div>
@@ -14,19 +12,17 @@
 
 
   <form action="" method="post" enctype="multipart/form-data">
-
-
     <div class="col-md-8">
 
       <div class="form-group">
-        <label for="product_title">Product Title </label>
+        <label for="product_title">Titulo del producto </label>
         <input type="text" name="product_title" class="form-control">
 
       </div>
 
 
       <div class="form-group">
-        <label for="product_description">Product Description</label>
+        <label for="product_description">Descripcion del producto</label>
         <textarea name="product_description" id="" cols="30" rows="10" class="form-control"></textarea>
       </div>
 
@@ -35,14 +31,14 @@
       <div class="form-group row">
 
         <div class="col-xs-3">
-          <label for="product_price">Product Price</label>
-          <input type="number" name="product_price" class="form-control" size="60">
+          <label for="product_price">Precio del producto</label>
+          <input type="number" step=0.01 name="product_price" class="form-control" size="60">
         </div>
       </div>
 
 
       <div class="form-group">
-        <label for="short_desc">Product Sort Description</label>
+        <label for="short_desc">Descripción corta</label>
         <textarea name="short_desc" id="" cols="30" rows="3" class="form-control"></textarea>
       </div>
 
@@ -60,39 +56,28 @@
 
 
       <div class="form-group">
-        <input type="submit" name="draft" class="btn btn-warning btn-lg" value="Draft">
-        <input type="submit" name="publish" class="btn btn-primary btn-lg" value="Publish">
+        <input type="submit" name="draft" class="btn btn-primary btn-lg" value="Borrar">
+        <input type="submit" name="publish" class="btn btn-primary btn-lg" value="Publicar">
       </div>
 
 
-      <!-- Product Categories-->
-
       <div class="form-group">
-        <label for="product_category_id">Product Category</label>
+        <label for="product_category_id">Categoría producto</label>
         <select name="product_category_id" id="" class="form-control">
-          <option value="">Select Category </option>
-          <?php show_categories_add_product_page();?>
+          <option value="">Selecciona categoría </option>
+          <?php show_categories_add_product_page(); ?>
         </select>
       </div>
 
 
-
-
-
-      <!-- Product Quantity-->
-
-
       <div class="form-group">
-        <label for="product_quantity">Product Quantity</label>
-       <input type="number" class="form-control" name="product_quantity">
+        <label for="product_quantity">Cantidad producto</label>
+        <input type="number"  class="form-control" name="product_quantity">
       </div>
 
 
-    
-
-      <!-- Product Image -->
       <div class="form-group">
-        <label for="product-title">Product Image</label>
+        <label for="product-title">Imagen del producto</label>
         <input type="file" name="file">
 
       </div>
@@ -104,5 +89,3 @@
 
 
   </form>
-
-

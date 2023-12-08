@@ -11,7 +11,7 @@ include(FRONT . DS . "header.php");
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-12 text-center">
-            <h1 class="section-heading">Contacta con nosotros</h1>
+            <h2 class="section-heading">Contacta con nosotros</h2>
             <h6 class="text-center text-dark">
                 <?php display_message() ?>
             </h6>

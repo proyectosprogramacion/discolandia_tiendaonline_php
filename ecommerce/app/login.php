@@ -28,12 +28,9 @@ include(FRONT . DS . "header.php");
           <div class="form-group text-left">
             <input type="submit" value="submit" class="btn text-light bg-dark ">
           </div>
-          <input type="checkbox" name="recordar">
-          <label for="recordar">Recordar</label>
+
         </form>
-      </div><!--card-->
-      <!--login/registro/ -->
-      <a class="text-dark" href="">Darse de alta en el sistema</a><br>
+      </div>
     </div> <!--8col -->
     <div class="col-sm-2"></div>
   </div> <!--row -->

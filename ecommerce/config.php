@@ -26,7 +26,7 @@ defined("UPLOAD_DIRECTORY") ? null : define("UPLOAD_DIRECTORY", "C:/xampp/htdocs
 defined("DB_HOST") ? null : define("DB_HOST", "localhost");
 defined("DB_USER") ? null : define("DB_USER", "root");
 defined("DB_PASSWORD") ? null : define("DB_PASSWORD", "");
-defined("DB_NAME") ? null : define("DB_NAME", "ecom_paypal");
+defined("DB_NAME") ? null : define("DB_NAME", "bbdd_discolandia");
 
 
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);

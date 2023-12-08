@@ -1,20 +1,17 @@
 <?php add_user(); ?>
 <h1 class="page-header">
-    Add User
+    Añadir usuario
 </h1>
 
 
 
 <form action="" method="post" enctype="multipart/form-data">
 
-
-
-
     <div class="col-md-6">
 
 
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Nombre usuario</label>
             <input type="text" name="username" class="form-control">
 
         </div>
@@ -30,14 +27,14 @@
 
 
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Contraseña</label>
             <input type="password" name="password" class="form-control">
 
         </div>
 
         <div class="form-group">
 
-            <input type="submit" name="add_user" class="btn btn-primary pull-right" value="Add User">
+            <input type="submit" name="add_user" class="btn btn-primary pull-right" value="Añadir usuario">
 
         </div>
 

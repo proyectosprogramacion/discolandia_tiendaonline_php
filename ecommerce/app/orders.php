@@ -7,7 +7,7 @@ require_once("../config.php");
 <div class="col-md-12">
     <div class="row">
         <h1 class="page-header">
-            All Orders
+            Todas las ordenes
 
         </h1>
         <h4 class="bg-success">
@@ -21,10 +21,10 @@ require_once("../config.php");
 
                 <tr>
                     <th>Id</th>
-                    <th>Amount</th>
-                    <th>Transaction</th>
-                    <th>Currency</th>
-                    <th>Status</th>
+                    <th>Cantidad</th>
+                    <th>Transacción</th>
+                    <th>Moneda</th>
+                    <th>Estado</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,10 +36,3 @@ require_once("../config.php");
             </tbody>
         </table>
     </div>
-
-
-
-
-    <?php
-    include(BACK . DS . "footer.php");
-    ?>

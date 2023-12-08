@@ -1,53 +1,35 @@
-<?php 
+<?php
 require_once("../config.php");
 ?>
 
 
 
-       
+<div class="row">
 
-             <div class="row">
+  <h1 class="page-header">
+    Todos los productos
 
-<h1 class="page-header">
-   All Products
+  </h1>
+  <h3 class="bg-success">
+    <?php display_message() ?>
+  </h3>
+  <table class="table table-hover">
 
-</h1>
-<h3 class="bg-success"><?php display_message() ?> </h3>
-<table class="table table-hover">
 
-
-    <thead>dsx
+    <thead>
 
       <tr>
-           <th>Id</th>
-           <th>Title</th>
-           <th>Category</th>
-           <th>Price</th>
-           <th>Quantity</th>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Descripción larga</th>
+        <th>Descripción corta</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
       </tr>
     </thead>
     <tbody>
 
-      <?php get_products_in_admin () ?>
-  </tbody>
-</table>
-
-
-
-
-
-
-assssw
-
-
-
-
-                
-                 
-
-
- 
-
-<?php
-include(BACK.DS."footer.php");
-?>
+      <?php get_products_in_admin() ?>
+    </tbody>
+  </table>

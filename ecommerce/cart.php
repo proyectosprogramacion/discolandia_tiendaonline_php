@@ -119,13 +119,13 @@ function process_transaction()
   if (isset($_GET['tx'])) {
 
     $amount = $_GET['amt'];
-    echo $amount;
+    echo  $amount;
     $currency = $_GET['cc'];
-    echo $currency;
+    echo  $currency;
     $transaction = $_GET['tx'];
-    echo $transaction;
+    echo  $transaction;
     $status = $_GET['st'];
-    echo $status;
+    echo  $status;
     $total = 0;
     $item_quantity = 0;
 
