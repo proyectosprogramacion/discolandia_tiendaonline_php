@@ -20,7 +20,6 @@ if (!isset($_SESSION['username'])) {
 
 
         <?php
-    
         if ($_SERVER['REQUEST_URI'] == "/discolandia_tiendaonline_php/ecommerce/app/admin.php") {
             include(ADMIN . "/admin_content.php");
 

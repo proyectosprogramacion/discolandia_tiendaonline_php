@@ -379,8 +379,30 @@ function add_user()
 
 
 
-/****************************FRONT END FUNCTIONS************************/
 
+
+
+
+
+/****************************Front Catálogo ************************/
+
+/*Permite que solo se muestren los carácteres que yo quiero siendo todas las carts iguales
+        Y además que no se corte en mitad de una palabra
+        Esto es sino importa donde se acabe $string= substr($row['product_description'],0,150);
+        */
+function cortar_string($string, $largo)
+{
+    $marca = "<!--corte-->";
+
+    if (strlen($string) > $largo) {
+
+        $string = wordwrap($string, $largo, $marca);
+        $string = explode($marca, $string);
+        $string = $string[0];
+    }
+    return $string;
+
+}
 
 
 function get_products()
@@ -388,25 +410,235 @@ function get_products()
     $query = query(" SELECT * FROM products");
     confirm($query);
     while ($row = fetch_array($query)) {
+
+
+        $textocortado = cortar_string($row['product_description'], 150);
         $product_image = display_image($row['product_image']);
+
         $product = <<<DELIMETER
-        
-<div class="col-sm-4 col-lg-4 col-md-4">
-    <div class="thumbnail">
-        <a href="item.php?id={$row['product_id']}"><img style="height: 90px" src="{$product_image}" alt=""></a>
-       <div class="caption">
-           <h4 class="pull-right">&#36;{$row['product_price']}</h4>
-           <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
-            </h4>
-            <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-             <a class="btn btn-primary" target="_blank" href="../app/cart.php?add={$row['product_id']}">Add to cart</a>
+
+        <div class="col py-5 mx-5">
+        <div class="card" style="width: 20rem;">
+        <div class="card-body">
+        <h5 class="text-center bg-dark text-white">{$row['short_desc']}</a></h5>
+        <a href="item.php?id={$row['product_id']}"><img style="width: 18rem";" src="{$product_image}" alt=""></a>
+        </div>
+        <div class="card-body">
+                  <div class="d-flex justify-content-between ">
+                  <h6 class="card-title"><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a></h6>
+                  <h6 class="card-title pull-right">{$row['product_price']} €</h6>
+                </div>
+                   <p class="card-text texto">
+                   $textocortado...</p>
+                   </p>
+                <a class="btn btn-primary" href="../cart.php?add={$row['product_id']}">Añadir a carrito</a>
+                          </div>
         </div>
     </div>
-</div>
+   
 DELIMETER;
         echo $product;
     }
 }
+
+
+
+/****************************Front login como Admin ************************/
+
+
+function login_user()
+{
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = escape_string($_POST['username']);
+        //$email=escape_string($_POST['email']);
+        $password = escape_string($_POST['password']);
+        $query = query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
+        confirm($query);
+
+
+        if (mysqli_num_rows($query) == 0) {
+            set_message("Tu usuario o password es erronea.");
+            redirect("login.php");
+        } else {
+            $_SESSION['username'] = $username;
+            redirect("admin.php");
+        }
+    }
+}
+
+
+
+
+
+/****************************Front contacto************************/
+
+
+
+function send_message()
+{
+
+    if (isset($_POST['submit'])) {
+
+        $to = "someEmailaddress@gmail.com";
+        $from_name = $_POST['name'];
+        $subject = $_POST['subject'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+
+        $headers = "From: {$from_name} {$email}";
+
+
+        $result = mail($to, $subject, $message, $headers);
+
+        if (!$result) {
+
+            set_message("Sorry we could not send your message");
+            redirect("contact.php");
+
+        } else {
+
+            set_message("Your Message has been sent");
+            redirect("contact.php");
+        }
+
+
+
+
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************No se utilizan ***********************/
+
+function get_categories()
+{
+
+
+    $query = query("SELECT * FROM categories");
+    confirm($query);
+
+    while ($row = fetch_array($query)) {
+
+
+        $categories_links = <<<DELIMETER
+
+<a href='category.php?id={$row['cat_id']}' class='list-group-item'>{$row['cat_title']}</a>
+
+
+DELIMETER;
+
+        echo $categories_links;
+    }
+
+}
+
+
+
+
+
+
+function get_products_in_cat_page()
+{
+    $query = query(" SELECT * FROM products WHERE product_category_id = " . escape_string($_GET['id']) . " AND product_quantity >= 1 ");
+    confirm($query);
+
+    while ($row = fetch_array($query)) {
+
+        $product_image = display_image($row['product_image']);
+
+        $product = <<<DELIMETER
+
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="../resources/{$product_image}" alt="">
+                    <div class="caption">
+                        <h3>{$row['product_title']}</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+DELIMETER;
+
+        echo $product;
+    }
+
+}
+
+
+
+function get_products_in_shop_page()
+{
+
+
+    $query = query(" SELECT * FROM products WHERE product_quantity >= 1 ");
+    confirm($query);
+
+    while ($row = fetch_array($query)) {
+
+        $product_image = display_image($row['product_image']);
+
+        $product = <<<DELIMETER
+
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="../resources/{$product_image}" alt="">
+                    <div class="caption">
+                        <h3>{$row['product_title']}</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+DELIMETER;
+
+        echo $product;
+
+
+    }
+
+
+}
+
+
 
 function count_all_records($table)
 {
@@ -529,182 +761,11 @@ DELIMETER;
 
 
 
-function get_categories()
-{
 
+/************************No se si se utilizaran ***********************/
 
-    $query = query("SELECT * FROM categories");
-    confirm($query);
 
-    while ($row = fetch_array($query)) {
 
-
-        $categories_links = <<<DELIMETER
-
-<a href='category.php?id={$row['cat_id']}' class='list-group-item'>{$row['cat_title']}</a>
-
-
-DELIMETER;
-
-        echo $categories_links;
-
-    }
-
-
-
-}
-
-
-
-
-
-function get_products_in_cat_page()
-{
-
-
-    $query = query(" SELECT * FROM products WHERE product_category_id = " . escape_string($_GET['id']) . " AND product_quantity >= 1 ");
-    confirm($query);
-
-    while ($row = fetch_array($query)) {
-
-        $product_image = display_image($row['product_image']);
-
-        $product = <<<DELIMETER
-
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="../resources/{$product_image}" alt="">
-                    <div class="caption">
-                        <h3>{$row['product_title']}</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-DELIMETER;
-
-        echo $product;
-
-
-    }
-
-
-}
-
-
-
-
-
-
-
-function get_products_in_shop_page()
-{
-
-
-    $query = query(" SELECT * FROM products WHERE product_quantity >= 1 ");
-    confirm($query);
-
-    while ($row = fetch_array($query)) {
-
-        $product_image = display_image($row['product_image']);
-
-        $product = <<<DELIMETER
-
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="../resources/{$product_image}" alt="">
-                    <div class="caption">
-                        <h3>{$row['product_title']}</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-DELIMETER;
-
-        echo $product;
-
-
-    }
-
-
-}
-
-
-
-
-function login_user()
-{
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = escape_string($_POST['username']);
-        //$email=escape_string($_POST['email']);
-        $password = escape_string($_POST['password']);
-        $query = query("SELECT * FROM users WHERE username='{$username}' AND password='{$password}'");
-        confirm($query);
-
-
-
-        if (mysqli_num_rows($query) == 0) {
-            set_message("Tu usuario o password es erronea.");
-            redirect("login.php");
-        } else {
-            $_SESSION['username'] = $username;
-            redirect("admin.php");
-        }
-
-    }
-}
-
-
-
-function send_message()
-{
-
-    if (isset($_POST['submit'])) {
-
-        $to = "someEmailaddress@gmail.com";
-        $from_name = $_POST['name'];
-        $subject = $_POST['subject'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-
-
-        $headers = "From: {$from_name} {$email}";
-
-
-        $result = mail($to, $subject, $message, $headers);
-
-        if (!$result) {
-
-            set_message("Sorry we could not send your message");
-            redirect("contact.php");
-        } else {
-
-            set_message("Your Message has been sent");
-            redirect("contact.php");
-        }
-
-
-
-
-    }
-
-
-
-
-}
-
-
-/************************No se utilizan ***********************/
 
 
 

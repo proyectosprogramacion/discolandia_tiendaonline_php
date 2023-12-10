@@ -12,15 +12,16 @@ include(FRONT . DS . "header.php");
     <div class="row">
         <div class="col-lg-12 text-center">
             <h2 class="section-heading">Contacta con nosotros</h2>
-            <h6 class="text-center text-dark">
-                <?php display_message() ?>
+            <h6 class="section-subheading text-center text-dark">
+                <!--<?php display_message() ?>-->
             </h6>
-            <h3 class="section-subheading text-muted"></h3>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <form action=" <?php send_message(); ?>" name="sentMessage" id="contactForm" method="post">
+            <form action="" name="sentMessage" id="contactForm" method="post">
+            <!-- Si estuviéramos en un servidor online
+                <?php send_message(); ?>-->
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">

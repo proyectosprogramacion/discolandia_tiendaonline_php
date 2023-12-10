@@ -14,7 +14,7 @@ include(FRONT . DS . "header.php");
             <div class="w-100 bg-light mt-3 p-3 pl-4 border-left shadow">
                 <div class="row d-flex justify-content-around text-center">
                     <div class="card col-4 p-3 bg-light border-light" style="width: 30rem;">
-                        <img src="../public/img/Extremoduro_camiseta.jpg" class="img-fluid card-img-top" alt="">
+                        <img src="../resources/img/Extremoduro_camiseta.jpg" class="img-fluid card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Extremoduro </h5>
                             <p class="card-text">15€</p>
@@ -25,7 +25,7 @@ include(FRONT . DS . "header.php");
                         <a href="#" class="btn bg-black text-white">Comprar</a>
                     </div>
                     <div class="card col-4 p-3 bg-light border-light" style="width: 30rem;">
-                        <img src="../public/img/HeroesSilencio_camiseta.jpg" class="img-fluid card-img-top" alt="">
+                        <img src="../resources/img/HeroesSilencio_camiseta.jpg" class="img-fluid card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Heroes del Silencio</h5>
                             <p class="card-text">15€</p>
@@ -36,7 +36,7 @@ include(FRONT . DS . "header.php");
                         <a href="#" class="btn bg-black text-white">Comprar</a>
                     </div>
                     <div class="card col-4 p-3 bg-light border-light" style="width: 30rem;">
-                        <img src="../public/img/OrejaVanGogh_camiseta.jpg" class="img-fluid card-img-top" alt="">
+                        <img src="../resources/img/OrejaVanGogh_camiseta.jpg" class="img-fluid card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Oreja de Van Gogh</h5>
                             <p class="card-text">10€</p>
@@ -51,7 +51,7 @@ include(FRONT . DS . "header.php");
                     <!-- Segunda Columna -->
 
                     <div class="card col-4 p-3 bg-light border-light" style="width: 30rem;">
-                        <img src="../public/img/RollingStones_camiseta.jpg" class="img-fluid card-img-top" alt="">
+                        <img src="../resources/img/RollingStones_camiseta.jpg" class="img-fluid card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Rolling Stones</h5>
                             <p class="card-text">40€</p>
@@ -61,7 +61,7 @@ include(FRONT . DS . "header.php");
                         <a href="#" class="btn bg-black text-white">Comprar</a>
                     </div>
                     <div class="card col-4 p-3 bg-light border-light" style="width: 30rem;">
-                        <img src="../public/img/StevieNicks_camiseta.jpg" class="img-fluid card-img-top" alt="">
+                        <img src="../resources/img/StevieNicks_camiseta.jpg" class="img-fluid card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Stevie Nicks</h5>
                             <p class="card-text">20€</p>
@@ -73,7 +73,7 @@ include(FRONT . DS . "header.php");
                         <a href="#" class="btn bg-black text-white">Comprar</a>
                     </div>
                     <div class="card col-4 p-3 bg-light border-light" style="width: 30rem;">
-                        <img src="../public/img/taylorSwift_camiseta.jpg" class="img-fluid card-img-top" alt="">
+                        <img src="../resources/img/taylorSwift_camiseta.jpg" class="img-fluid card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Taylor Swift</h5>
                             <p class="card-text">10€</p>

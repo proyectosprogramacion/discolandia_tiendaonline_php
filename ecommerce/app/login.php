@@ -25,8 +25,9 @@ include(FRONT . DS . "header.php");
             <label for="password">Password:</label>
             <input type="password" name="password" class="form-control">
           </div>
+          <br>
           <div class="form-group text-left">
-            <input type="submit" value="submit" class="btn text-light bg-dark ">
+            <input type="submit" value="Enviar" class="btn text-light bg-dark ">
           </div>
 
         </form>

@@ -10,22 +10,22 @@ include(FRONT . DS . "header.php");
 <div id="carouselExample" class="carousel slide mt-5">
   <div class="carousel-inner">
     <div class="carousel-item active" style="max-height: 350px;">
-      <img src="../public/img/RollingStones.jpg" class="d-block w-100" alt="...">
+      <img src="../resources/img/RollingStones.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" style="max-height: 350px;">
-      <img src="../public/img/HeroesSilencio.jpg" class="d-block w-100" alt="...">
+      <img src="../resources/img/HeroesSilencio.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" style="max-height: 350px;">
-      <img src="../public/img/extremoduro.jpg" class="d-block w-100" alt="...">
+      <img src="../resources/img/extremoduro.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" style="max-height: 350px;">
-      <img src="../public/img/OrejaVanGogh.jpg" class="d-block w-100" alt="...">
+      <img src="../resources/img/OrejaVanGogh.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" style="max-height: 350px;">
-      <img src="../public/img/StevieNicks.jpg" class="d-block w-100" alt="...">
+      <img src="../resources/img/StevieNicks.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" style="max-height: 350px;">
-      <img src="../public/img/taylorSwift.jpg" class="d-block w-100" alt="...">
+      <img src="../resources/img/taylorSwift.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

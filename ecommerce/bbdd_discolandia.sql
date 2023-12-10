@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2023 a las 09:56:55
+-- Tiempo de generación: 10-12-2023 a las 18:42:19
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -56,6 +56,13 @@ CREATE TABLE `orders` (
   `order_currency` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `order_amount`, `order_transaction`, `order_status`, `order_currency`) VALUES
+(1, 450, '1234', 'Completada', '€');
+
 -- --------------------------------------------------------
 
 --
@@ -78,10 +85,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `product_price`, `product_quantity`, `product_description`, `short_desc`, `product_image`) VALUES
-(1, 'Hackney Diamonds Digipack', 4, 20.99, 21, 'Hackney Diamonds\' es el esperadísimo primer álbum de estudio de material nuevo de The Rolling Stones, desde \'A Bigger Bang\' de 2005; álbum que, casualmente, se publicaba el mismo día del anuncio de éste - 6 de septiembre - hace 18 años.', 'Intérprete The Rolling Stones \r\n', 'disco_rollingStone.jpg'),
-(2, 'Iros todos a tomar por culo', 3, 27.99, 15, 'El primer álbum en directo \'\'IROS TODOS A TOMAR POR CULO\'\' de la banda de rock española EXTREMODURO se lanza en formato 2 LP vinilo en color negro. El álbum fue originalmente publicado por DRO el 21 de abril de 1997. De la gira que realizaron conjuntamente con la banda Platero y Tú, se grabó el audio de varias actuaciones que serían publicadas en su primer disco en directo, nuevamente producido por Iñaki \"Uoho\" Antón.', 'Intérprete Extremoduro', 'disco_extremoduro.jpg'),
-(3, 'Héroe de leyenda ', 3, 21.99, 20, 'Reedición en formato vinilo + CD de \'Héroe de Leyenda\', el mini-Lp con el que debutaron discográficamente Héroes del Silencio en 1987. \r\n\r\nProducido por Gustavo Montesano y con arreglos de la propia banda, este fue el primer trabajo que publicaron con EMI. La acogida por parte de sus fans superó todas las expectativas, vendiendo más de 30.000 copias en su primera edición. Este hecho motivó que la discográfica lanzara una segunda tirada con una portada diferente y consolidara su compromiso para trabajar en lo que sería su primer álbum \'El mar no cesa\', que vio la luz al año siguiente.\'', 'Interprete Héroes del silencio', 'disco_heroesSilencio.jpg'),
-(4, 'A las cinco en el Astoria ', 1, 14.99, 30, 'A las cinco en el Astoria es el quinto álbum de La Oreja de Van Gogh, uno de los grupos más influyentes del pop en español de la década de los 2000 y hoy convertidos en un auténtico mito de la música en nuestro país y en toda Latinoamérica, donde siguen siendo un fenómeno de masas.  Este disco, ahora reeditado en una cuidada edición vinilo, fue el primero de la nueva etapa de la banda española con la vocalista Leire Martínez, y recoge canciones tan laureadas como \"El Último Vals\", \"Inmortal\" o la imborrable \"Jueves\", temas todos ellos que siguen cautivando a los fans de siempre y a las nuevas generaciones.  Se trata de uno de los álbumes más vendidos del 2008, superando con creces el doble platino y permaneciendo más de 29 semanas en el top 10 de ventas. Además, le valió al grupo donostiarra una nueva nominación a los Latin Grammy.', 'Interprete La oreja de Van Gogh', 'disco_orejaVanGogh.jpg');
+(1, 'Hackney Diamonds Digipack', 4, 20.99, 50, 'Hackney Diamonds es el esperadísimo primer álbum de estudio de material nuevo de The Rolling Stones, desde A Bigger Bang de 2005; álbum que, casualmente, se publicaba el mismo día del anuncio de éste - 6 de septiembre - hace 18 años.', 'The Rolling Stones', 'disco_rollingStone.jpg'),
+(2, 'Iros todos a tomar por culo', 3, 27.99, 15, 'El primer álbum en directo de la banda de rock española se lanza en formato 2 LP vinilo en color negro. El álbum fue originalmente publicado por DRO el 21 de abril de 1997. ', 'Extremoduro', 'disco_extremoduro.jpg'),
+(3, 'Héroe de leyenda ', 3, 21.99, 20, 'Producido por Gustavo Montesano y con arreglos de la propia banda, este fue el primer trabajo que publicaron con EMI. La acogida por parte de sus fans superó todas las expectativas, vendiendo más de 30.000 copias en su primera edición. ', 'Héroes del silencio', 'disco_heroesSilencio.jpg');
 
 -- --------------------------------------------------------
 
@@ -142,6 +148,12 @@ ALTER TABLE `reports`
   ADD PRIMARY KEY (`report_id`);
 
 --
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -149,19 +161,25 @@ ALTER TABLE `reports`
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `reports`
 --
 ALTER TABLE `reports`
   MODIFY `report_id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

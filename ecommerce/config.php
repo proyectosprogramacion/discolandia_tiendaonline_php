@@ -1,3 +1,4 @@
+
 <?php
 /*Con PHP podemos almacenar la salida, a medida que se va generando, en un buffer. De modo que no se envíe ningún dato al cliente hasta que se indique expresamente. */
 //ob_start();
@@ -9,30 +10,30 @@ session_start();
 //session_destroy();
 
 
-//Definimos las rutas. 
-//No funciona en mi ordenador por eso tiene rutas absolutas, pero se debería usar la opción rutas relativas
-defined("DS") ? null : define("DS", DIRECTORY_SEPARATOR);
 
-//defined("FRONT") ? null : define ("FRONT", __DIR__.DS."templates/front");
-defined("FRONT") ? null : define("FRONT", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app/templates/front");
+defined("DS") ? null : define("DS",DIRECTORY_SEPARATOR );
+
+//defined("FRONT") ? null : define ("FRONT", __DIR__.DS."templates\front");
+defined("FRONT") ? null : define ("FRONT", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app/templates/front");
+
 
 //defined("BACK") ? null : define ("BACK", __DIR__.DS."templates\back");
-defined("BACK") ? null : define("BACK", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app/templates/back");
-defined("ADMIN") ? null : define("ADMIN", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app");
-defined("UPLOAD_DIRECTORY") ? null : define("UPLOAD_DIRECTORY", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app/uploads");
+defined("BACK") ? null : define ("BACK", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app/templates/back");
+defined("ADMIN") ? null : define ("ADMIN", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app");
+defined("UPLOAD_DIRECTORY") ? null : define ("UPLOAD_DIRECTORY", "C:/xampp/htdocs/discolandia_tiendaonline_php/ecommerce/app/uploads");
 
 
-//Acceso a la base de datos
-defined("DB_HOST") ? null : define("DB_HOST", "localhost");
-defined("DB_USER") ? null : define("DB_USER", "root");
-defined("DB_PASSWORD") ? null : define("DB_PASSWORD", "");
-defined("DB_NAME") ? null : define("DB_NAME", "bbdd_discolandia");
+
+defined("DB_HOST") ? null : define ("DB_HOST", "localhost");
+defined("DB_USER") ? null : define ("DB_USER", "root");
+defined("DB_PASSWORD") ? null : define ("DB_PASSWORD", "");
+defined("DB_NAME") ? null : define ("DB_NAME", "bbdd_discolandia");
 
 
-$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$connection= mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD, DB_NAME); 
 
-
-//Archivos necesarios que se utilicen de forma general en el programa
 require_once("functions.php");
 require_once("cart.php");
+
 ?>
+
